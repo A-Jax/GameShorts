@@ -1,6 +1,8 @@
 <div class="container-fluid">
     <div class="row">
-        <div id="banner" class="col-md-12"></div>
+        <div id="banner" class="col-md-12">
+          <h1>{{objectKey}}'s Videos</h1>
+        </div>
     </div>
   </div>
   
@@ -16,10 +18,12 @@
               </video>
               
             </a>
-            <div *ngIf="displayName == objectKey">
-            <button class="btn btn-block btn-warning" (click)="deleteVideo((video.$key), (video.name))">Delete video</button>
-            </div>
+            <p class="lead">{{video.title}} by {{video.displayName}}</p>
+            
           </div>
+          <div *ngIf="displayName == objectKey">
+              <button class="btn btn-block btn-warning" (click)="deleteVideo((video.$key), (video.name))">Delete video</button>
+              </div>
         </div>
       </div>
     </div>
