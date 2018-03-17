@@ -28,27 +28,28 @@ export class RegisterComponent implements OnInit {
   registerUser(username, email, p1, p2) {
 
     if (p1 !== p2) {
-      console.log('error, passwords do not match')
+      this.flashMessagesService.show('Passwords do not match',
+          { cssClass: 'alert-danger', timeout: 3500 });
+          window.location.reload();
     } else {
       this.userNames.forEach((e) => {
         if (username.toLowerCase() == e.userName.toLowerCase()) {
           this.userNameTaken = true;
-        } else {
+          email = '';
+          p1 = ''
+        } else if (username.toLowerCase() != e.userName.toLowerCase()) {
           this.userNameTaken = false;
+          this.auth.registerAccount(email, p1, username);
         }
       })
-      console.log(this.userNameTaken)
+
       if (this.userNameTaken == true) {
         this.flashMessagesService.show('Username in use',
           { cssClass: 'alert-danger', timeout: 3500 });
-        email = '';
-        p1 = ''
+          window.location.reload();
+
       }
-      else if (this.userNameTaken == false) {
-        this.auth.registerAccount(email, p1, username);
-        this.flashMessagesService.show('Account registered',
-          { cssClass: 'alert-success', timeout: 3500 });
-      }
+ 
 
     }
 
