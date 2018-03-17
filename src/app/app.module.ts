@@ -23,6 +23,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { appRoutes } from '../routes';
 import { RegisterComponent } from './component/register/register.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 
 
@@ -37,6 +38,7 @@ import { ProfileComponent } from './component/profile/profile.component';
     AboutComponent,
     RegisterComponent,
     ProfileComponent,
+    FooterComponent,
     
   ],
   imports: [

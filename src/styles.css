@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-color: #292929
+    /* background-color: #292929 */
+    background-color: #F4F4F4;
 }
 .alert-danger {
     margin: 0;

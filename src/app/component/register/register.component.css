@@ -1,17 +1,18 @@
 input{
-    background-color: #292929;
+    background-color: #666666;
     border-radius: 2px;
     padding: 5px 15px;
     border: 0;
     color: #ccc;
     border-bottom: 1px solid #ccc;
     transition: 0.2s all;
+    border-radius:10px;
 
 }
 
 input:focus {
-    color: #ccc;
-    background-color: transparent;
+    color: #FFF;
+    background-color: #666666;
     transform: scale(1.07);
     transition: 0.2s all;
 }
