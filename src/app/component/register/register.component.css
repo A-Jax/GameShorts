@@ -1,0 +1,22 @@
+input{
+    background-color: #292929;
+    border-radius: 2px;
+    padding: 5px 15px;
+    border: 0;
+    color: #ccc;
+    border-bottom: 1px solid #ccc;
+    transition: 0.2s all;
+
+}
+
+input:focus {
+    color: #ccc;
+    background-color: transparent;
+    transform: scale(1.07);
+    transition: 0.2s all;
+}
+
+::placeholder {
+    color: #ccc;
+    opacity: 1; /* Firefox */
+}

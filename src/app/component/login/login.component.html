@@ -1,0 +1,25 @@
+<div class="container">
+    <flash-messages></flash-messages>
+  <div class="row mt-5">
+    <div class="col-md-6 mx-auto" style="text-align: center">
+      <img style="width: 25%" src="../../../assets/img/play-button.svg" alt="GameShorts">
+    </div>
+    <br>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-3 mx-auto">
+      <form #loginForm="ngForm">
+        <div class="form-group">
+          <input class="form-control" #emailControl="ngModel" placeholder="Email Address" [(ngModel)]="email" name="email" email required>
+        </div>
+        <div class="form-group">
+          <input class="form-control" #passwordControl="ngModel" placeholder="Password" [(ngModel)]="password" name="password" type="password"
+            required>
+        </div>
+        <small style="text-align: center" id="emailHelp" class="form-text text-muted"><a class="nav-link" href="/register">Register an account</a></small>
+        <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-info btn-block" (click)="signIn()">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12 mx-auto">
+      <div class="card" style="width: 100%;">
+        <video [src]="metaUrl" preload="auto" width="100%" controls="controls" autoplay="autoplay"></video>
+        <div class="card-body">
+          <h5 class="card-title">{{metaTitle}}</h5>
+          <p class="card-text">{{metaDesc}}</p>
+          <hr>
+          <small>
+            <p class="card-text">
+              <b>Tags: {{metaTags}}</b>
+            </p>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

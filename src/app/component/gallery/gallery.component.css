@@ -1,0 +1,9 @@
+#about {
+    z-index: 50;
+    position: fixed;
+    text-align: center
+}
+
+h3 {
+    font-family: 'Press Start 2P', cursive;
+}

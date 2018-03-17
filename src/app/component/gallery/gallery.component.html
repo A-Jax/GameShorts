@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-8 mx-auto mt-3">
+      <div *ngFor="let video of images | async">
+        <div *ngIf="objectKey == video.displayName">
+          <div class="card mt-2 mb-2">
+            <a [routerLink]="['/image', video.$key]">
+              <video width="100%">
+                <source [src]="video.url" type="video/mp4">
+              </video>
+              
+            </a>
+            <div *ngIf="displayName == objectKey">
+            <button class="btn btn-block btn-warning" (click)="deleteVideo((video.$key), (video.name))">Delete video</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
