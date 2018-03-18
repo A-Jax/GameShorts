@@ -21,3 +21,19 @@ input:focus {
     color: #ccc;
     opacity: 1; /* Firefox */
 }
+
+h1 {
+    text-align: center;
+    font-size: 55px;
+    margin-top: 4%;
+    color: #E0A800;
+    font-weight: 600;
+}
+
+#banner {
+    background-image: url('../../../assets/img/banner.png');
+    height: 235px;
+    opacity: 0.7;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
