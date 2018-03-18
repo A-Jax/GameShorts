@@ -10,6 +10,7 @@ export class Upload {
     tags: string;
     displayName: string;
     uid: string;
+    likes: number;
 
     constructor(file: File) {
         this.file = file;

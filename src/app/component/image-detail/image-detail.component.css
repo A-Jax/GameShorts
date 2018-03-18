@@ -1,1 +1,13 @@
 /* blank */
+.card {
+    border-radius: 5%;
+    background-color: #666666
+}
+
+video {
+    border-radius: 5%;
+}
+
+* {
+    color: #EDEDED;
+}

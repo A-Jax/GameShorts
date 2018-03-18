@@ -33,7 +33,6 @@ export class ImageService {
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`${this.basePath}/${videoName}`)
       .delete();
-
     this.db.list(`${this.basePath}/${key}`).remove();
   }
 }
