@@ -20,6 +20,8 @@ h3 {
     background-image: url('../../../assets/img/banner.png');
     height: 235px;
     opacity: 0.7;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 p {
