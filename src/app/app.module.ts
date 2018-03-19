@@ -24,8 +24,7 @@ import { appRoutes } from '../routes';
 import { RegisterComponent } from './component/register/register.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { FooterComponent } from './component/footer/footer.component';
-
-
+import { ReversePipe } from './pipes/reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +38,7 @@ import { FooterComponent } from './component/footer/footer.component';
     RegisterComponent,
     ProfileComponent,
     FooterComponent,
+    ReversePipe,
     
   ],
   imports: [
@@ -54,7 +54,8 @@ import { FooterComponent } from './component/footer/footer.component';
     AuthenticationGaurdService,
     AuthenticationService,
     ImageService,
-    UploadService
+    UploadService,
+    ReversePipe
   ],
   bootstrap: [AppComponent]
 })

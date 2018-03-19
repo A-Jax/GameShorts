@@ -9,7 +9,7 @@
 <div class="container">
   <div class="row mt-3">
     <div class="col-md-8 mx-auto mt-3">
-      <div *ngFor="let video of images | async">
+      <div *ngFor="let video of images | async | reverse">
         <div *ngIf="objectKey == video.displayName">
           <div class="card mt-2 mb-2">
             <a [routerLink]="['/image', video.$key]">

@@ -11,6 +11,7 @@ export class Upload {
     displayName: string;
     uid: string;
     likes: number;
+    date;
 
     constructor(file: File) {
         this.file = file;

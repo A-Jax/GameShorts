@@ -44,6 +44,7 @@ export class UploadService {
         upload.tags = tags;
         upload.displayName = this.username;
         upload.uid = this.id;
+        upload.date = Date.now()
         this.saveFileData(upload)
       }
     );
