@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { environment } from '../environments/environment'
 
@@ -25,6 +25,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { FooterComponent } from './component/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,8 @@ import { FooterComponent } from './component/footer/footer.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FlashMessagesModule.forRoot(),
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthenticationGaurdService,

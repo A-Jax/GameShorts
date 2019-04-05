@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
+import { onErrorResumeNext } from 'rxjs/operator/onErrorResumeNext';
 
 @Component({
     selector: 'footer-component',
@@ -8,10 +11,39 @@ import { Component, OnInit } from '@angular/core';
 
 export class FooterComponent implements OnInit {
 
+    public email: string;
+    public joinUsFormGroup: FormGroup;
     public currentDate = Date.now();
-    
-    constructor() { }
+    private urlPath: string = '/joinUs';
+
+    constructor(
+        private http: HttpClient,
+        private formBuilder: FormBuilder) { }
 
     ngOnInit() {
+        this.joinUsFormGroup = this.formBuilder.group({
+            emailAddress: ['', Validators.required],
+            category: ['', Validators.required]
+        })
+    }
+
+    get f() { return this.joinUsFormGroup.controls };
+
+    public joinUsForm(): void {
+
+        const payload = {
+            emailAddress: this.f.emailAddress.value,
+            category: this.f.category.value
+        }
+
+        if (this.joinUsFormGroup.valid) {
+            this.http.post(this.urlPath, payload)
+                .subscribe()
+            this.joinUsFormGroup.reset()
+        } else {
+            console.log('error, please refresh and try again.')
+        }
+
+
     }
 }
