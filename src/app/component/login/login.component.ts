@@ -10,17 +10,16 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class LoginComponent {
 
-  email: string;
-  password: string;
-  errorMsg: string;
+  public email: string;
+  public password: string;
+  public errorMsg: string;
 
   constructor(private authService: AuthenticationService, private router: Router, private flashMessagesService: FlashMessagesService) { }
 
-  signIn() {
+  public signIn(): void {
     this.authService.login({ email: this.email, password: this.password })
       .then(resolve => this.router.navigate(['about']))
       .catch((error) => {
-        console.log(error.message);
         this.flashMessagesService.show(error.message,
           { cssClass: 'alert-danger', timeout: 3500 });
       })

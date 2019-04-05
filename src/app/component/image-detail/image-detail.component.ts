@@ -12,15 +12,17 @@ import { Observable } from 'rxjs/Observable';
 
 export class ImageDetailComponent implements OnInit {
 
-  constructor(private imageService: ImageService,
-    private route: ActivatedRoute) {
-  }
 
-  metaTitle;
-  metaDesc;
-  metaTags;
-  metaUrl;
-  objectKey = this.route.snapshot.params['id'];
+  public metaTitle: string;
+  public metaDesc: string;
+  public metaTags: string;
+  public metaUrl: string;
+  public objectKey = this.route.snapshot.params['id'];
+
+  constructor(
+    private imageService: ImageService,
+    private route: ActivatedRoute) { }
+
 
   ngOnInit() {
     this.imageService.getImage(this.objectKey)
@@ -29,10 +31,8 @@ export class ImageDetailComponent implements OnInit {
         this.metaTitle = video.title;
         this.metaDesc = video.description;
         this.metaTags = video.tags;
-       
+
       })
-
-
 
   }
 

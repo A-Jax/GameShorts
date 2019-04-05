@@ -9,7 +9,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 @Injectable()
 export class AuthenticationGaurdService implements CanActivate {
 
-  user: Observable<firebase.User>;
+  public user: Observable<firebase.User>;
 
   constructor(private afAuth: AngularFireAuth, private router: Router) { 
     this.user = afAuth.authState;

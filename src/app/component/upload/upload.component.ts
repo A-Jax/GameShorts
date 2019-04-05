@@ -11,23 +11,19 @@ import { FormsModule } from '@angular/forms'
 })
 export class UploadComponent {
 
-  files: FileList;
-  upload: Upload;
-  title: string;
-  description: string;
-  tags: string;
+  public files: FileList;
+  public upload: Upload;
+  public title: string;
+  public description: string;
+  public tags: string;
 
-  constructor(private uploadService: UploadService) { 
-    
-    
-  }
+  constructor(private uploadService: UploadService) { }
 
-  handleFiles(event) {
+  public handleFiles(event): void {
     this.files = event.target.files;
-
   }
 
-  uploadFiles() {
+  public uploadFiles(): void {
     const filesToUpload = this.files;
     const filesIdx = _.range(filesToUpload.length);
     _.each(filesIdx, (idx) => {

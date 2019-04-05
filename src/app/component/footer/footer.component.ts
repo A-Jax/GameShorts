@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
-import { onErrorResumeNext } from 'rxjs/operator/onErrorResumeNext';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
     selector: 'footer-component',
@@ -18,7 +18,8 @@ export class FooterComponent implements OnInit {
 
     constructor(
         private http: HttpClient,
-        private formBuilder: FormBuilder) { }
+        private formBuilder: FormBuilder,
+        private flashMessages: FlashMessagesService) { }
 
     ngOnInit() {
         this.joinUsFormGroup = this.formBuilder.group({
@@ -41,6 +42,12 @@ export class FooterComponent implements OnInit {
                 .subscribe()
             this.joinUsFormGroup.reset()
         } else {
+            this.flashMessages.grayOut(true)
+            this.flashMessages.show('Please complete all fields', { 
+                cssClass: 'alert-danger', 
+                timeout: 2000 
+            });
+
             console.log('error, please refresh and try again.')
         }
 

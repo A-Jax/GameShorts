@@ -11,30 +11,32 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  title: 'Gallery';
-  user: Observable<firebase.User>;
-  currentUser;
 
+  public title: string = 'Gallery';
+  public user: Observable<firebase.User>;
+  public currentUser: string;
+  public objectKey: string;
 
-  constructor(private authService: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
-
-  objectKey;
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.user = this.authService.authUser();
 
     this.authService.authUser()
-    .subscribe((auth) => {
-      if(auth) {
-        this.currentUser = firebase.auth().currentUser.displayName;
-      } else {
-        this.objectKey = this.route.snapshot.params['id'];
-      }
-    })
+      .subscribe((auth) => {
+        if (auth) {
+          this.currentUser = firebase.auth().currentUser.displayName;
+        } else {
+          this.objectKey = this.route.snapshot.params['id'];
+        }
+      })
 
   }
 
-  logOut() {
+  public logOut(): void {
     this.authService.logout()
       .then(onResolve => this.router.navigate['/']);
   }

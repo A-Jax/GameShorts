@@ -15,50 +15,49 @@ import { ReversePipe } from '../../pipes/reverse.pipe';
 })
 export class GalleryComponent implements OnInit, OnChanges {
 
-  username;
+  public username: string;
+  public images: Observable<GalleryImage[]>;
+  public imagesId = new Array<any>();
+  public imageUrl: string;
+  public imageKey: string;
+  public displayName: string;
+  public currentUser: string;
+  public objectKey = this.route.snapshot.params['id'];
 
-
-
-  images: Observable<GalleryImage[]>;
-  imagesId = new Array;
-  imageUrl;
-  imageKey;
-  displayName;
-  constructor(private imageService: ImageService, private route: ActivatedRoute, private authService: AuthenticationService) { }
-
-  objectKey = this.route.snapshot.params['id'];
-  currentUser;
+  constructor(
+    private imageService: ImageService,
+    private route: ActivatedRoute,
+    private authService: AuthenticationService) { }
 
   ngOnInit() {
     this.imageService.getImages()
       .subscribe((data) => {
         data.forEach(e => {
-          //console.log(e.url)
           this.imageUrl = e.url;
           this.imageKey = e.$key;
         })
       })
+
     this.images = this.imageService.getImages();
     this.authService.authUser()
       .subscribe(() => {
         this.username = firebase.auth().currentUser.uid;
       })
 
-      this.authService.authUser()
+    this.authService.authUser()
       .subscribe(() => {
         this.displayName = firebase.auth().currentUser.displayName;
-       
       })
   }
   ngOnChanges() {
     this.images = this.imageService.getImages();
   }
-  
 
-  deleteVideo(key, videoName) {
+
+  public deleteVideo(key, videoName): void {
 
     this.imageService.deleteVideo(key, videoName)
-   
+    
   }
 
 }
