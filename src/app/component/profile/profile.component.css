@@ -1,0 +1,12 @@
+#displayPhoto {
+    width: 55%;
+    border-radius: 50%;
+}
+
+#dpChange {
+    cursor: pointer;
+}
+
+#video {
+    display: none;
+}

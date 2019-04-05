@@ -6,7 +6,7 @@
                 <form>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <form [formGroup]="joinUsFormGroup" (ngSubmit)="joinUsForm">
+                            <form [formGroup]="joinUsFormGroup" (ngSubmit)="joinUsForm()">
                                 <input type="email" formControlName="emailAddress" class="form-control" id="inputEmail3"
                                     placeholder="Email">
                                 <fieldset class="form-group">

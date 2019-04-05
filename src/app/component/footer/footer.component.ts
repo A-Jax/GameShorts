@@ -23,7 +23,7 @@ export class FooterComponent implements OnInit {
 
     ngOnInit() {
         this.joinUsFormGroup = this.formBuilder.group({
-            emailAddress: ['', Validators.required],
+            emailAddress: ['', Validators.required, Validators.minLength(22)],
             category: ['', Validators.required]
         })
     }
