@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
-
-  <ul class="mr-auto"><a class="navbar-brand" href="#">Game
+  <ul class="mx-auto"><a class="navbar-brand" href="#">Game
       <img src="../../../assets/img/play-button.svg"> Shorts</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,11 +9,11 @@
   <ul class="mx-auto">
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-dark my-2 my-sm-0 mx-auto" type="submit">Search</button>
     </form>
   </ul>
-<ul class="ml-auto">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="mx-auto">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <li *ngIf="!(user|async)?.uid" class="nav-item">
         <a class="nav-link" href="/register">Register</a>
@@ -22,15 +21,13 @@
       <li *ngIf="!(user|async)?.uid" class="nav-item">
         <a class="nav-link" href="/login">Login</a>
       </li>
-
       <li *ngIf="(user|async)?.uid">
         <a class="nav-link" href="/gallery/{{currentUser}}"> <img src="../../../assets/img/playlist.svg"></a>
       </li>
 
-
       <li *ngIf="(user|async)?.uid">
-            <a class="nav-link disabled" href="/profile"><img src="../../../assets/img/user.svg"></a>
-          </li>
+        <a class="nav-link disabled" href="/profile"><img src="../../../assets/img/user.svg"></a>
+      </li>
       <li *ngIf="(user|async)?.uid">
         <a class="nav-link" href="/upload">
           <img src="../../../assets/img/upload.svg">
@@ -41,10 +38,6 @@
           <img src="../../../assets/img/exit.svg">
         </a>
       </li>
-
-
-
-  </div>
-</ul>
-
+    </div>
+  </ul>
 </nav>
