@@ -47,6 +47,7 @@ h1 {
     background-repeat: no-repeat;
 }
 
-.container {
-    height: 45vh;
+
+button {
+    cursor: pointer;
 }

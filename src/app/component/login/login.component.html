@@ -1,14 +1,18 @@
 <div class="container-fluid">
-    <div class="row">
-        <div id="banner" class="col-md-12">
-          <h1>Login</h1>
-        </div>
+  <div class="row">
+    <div id="banner" class="col-md-12">
     </div>
   </div>
+</div>
 
-
-<div class="container">
-    <flash-messages></flash-messages>
+<div class="container mb-auto">
+  <flash-messages></flash-messages>
+  <div class="row mt-1">
+    <div class="col-md-6 mx-auto" style="text-align: center">
+      <h1>Login</h1>
+    </div>
+    <br>
+  </div>
   <div class="row mt-5">
     <div class="col-md-6 mx-auto" style="text-align: center">
       <img style="width: 25%" src="../../../assets/img/play-buttonBLK.svg" alt="GameShorts">
@@ -19,14 +23,17 @@
     <div class="col-md-3 mx-auto">
       <form #loginForm="ngForm">
         <div class="form-group">
-          <input class="form-control" #emailControl="ngModel" placeholder="Email Address" [(ngModel)]="email" name="email" email required>
+          <input class="form-control" #emailControl="ngModel" placeholder="Email Address" [(ngModel)]="email"
+            name="email" email required>
         </div>
         <div class="form-group">
-          <input class="form-control" #passwordControl="ngModel" placeholder="Password" [(ngModel)]="password" name="password" type="password"
-            required>
+          <input class="form-control" #passwordControl="ngModel" placeholder="Password" [(ngModel)]="password"
+            name="password" type="password" required>
         </div>
-        <small style="text-align: center" id="emailHelp" class="form-text text-muted"><a class="nav-link" href="/register">Register an account</a></small>
-        <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-info btn-block" (click)="signIn()">Sign In</button>
+        <small style="text-align: center" id="emailHelp" class="form-text text-muted"><a class="nav-link"
+            href="/register">Register an account</a></small>
+        <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-info btn-block btn-dark"
+          (click)="signIn()">Sign In</button>
       </form>
     </div>
   </div>

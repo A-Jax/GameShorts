@@ -24,6 +24,7 @@ import { appRoutes } from '../routes';
 import { RegisterComponent } from './component/register/register.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { ReversePipe } from './pipes/reverse.pipe';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
     RegisterComponent,
     ProfileComponent,
     ReversePipe,
+    FooterComponent
     
   ],
   imports: [

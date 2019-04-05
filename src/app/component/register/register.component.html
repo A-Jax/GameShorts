@@ -1,39 +1,50 @@
 <div class="container-fluid">
-    <div class="row">
-        <div id="banner" class="col-md-12">
-          <h1>Register Account</h1>
-        </div>
+  <div class="row">
+    <div id="banner" class="col-md-12">
     </div>
   </div>
+</div>
 
 
 <div class="container">
   <flash-messages></flash-messages>
-    <br>
-    <div class="row mt-5">
-      <div class="col-md-6 mx-auto" style="text-align: center">
-        <img style="width: 25%" src="../../../assets/img/play-buttonBLK.svg" alt="GameShorts">
-      </div>
-      <br>
+  <br>
+  <div class="row mt-1">
+    <div class="col-md-6 mx-auto" style="text-align: center">
+      <h1>Register Account</h1>
     </div>
-    <div class="row mt-3">
-      <div class="col-md-4 mx-auto">
-        <form>
-          <div class="form-group">
-            <input [(ngModel)]="username" name="username" type="email" class="form-control" id="sdfsd" aria-describedby="emailHelp" placeholder="Username">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="email" name="email" type="email" class="form-control" id="sdf" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="password1" name="password1" name="password" type="password" class="form-control" id="sdfsdf" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="password2" name="password2" name="password" type="password" class="form-control" id="fghfgjf" placeholder="Repeat Password">
-            <small style="text-align: center" id="emailHelp" class="form-text text-muted">Password must be more than 6 characters</small>
-          </div>
-          <button class="btn btn-outline-info btn-block mt-2" type="submit" (click)="registerUser((username), (email), (password1), (password2))">Register</button>
-        </form>
-      </div>
+    <br>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-6 mx-auto" style="text-align: center">
+      <img style="width: 25%" src="../../../assets/img/play-buttonBLK.svg" alt="GameShorts">
+    </div>
+    <br>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-4 mx-auto">
+      <form>
+        <div class="form-group">
+          <input [(ngModel)]="username" name="username" type="email" class="form-control" id="sdfsd"
+            aria-describedby="emailHelp" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="email" name="email" type="email" class="form-control" id="sdf"
+            aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="password1" name="password1" name="password" type="password" class="form-control"
+            id="sdfsdf" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="password2" name="password2" name="password" type="password" class="form-control"
+            id="fghfgjf" placeholder="Repeat Password">
+          <small style="text-align: center" id="emailHelp" class="form-text text-muted">Password must be more than 6
+            characters</small>
+        </div>
+        <button class="btn btn-dark btn-block mt-2" type="submit"
+          (click)="registerUser((username), (email), (password1), (password2))">Register</button>
+      </form>
     </div>
   </div>
+</div>
