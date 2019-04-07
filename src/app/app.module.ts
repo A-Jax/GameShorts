@@ -26,6 +26,7 @@ import { ProfileComponent } from './component/profile/profile.component';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { FooterComponent } from './component/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorPageComponent } from './component/404/404.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     ProfileComponent,
     ReversePipe,
-    FooterComponent
+    FooterComponent,
+    ErrorPageComponent
     
   ],
   imports: [

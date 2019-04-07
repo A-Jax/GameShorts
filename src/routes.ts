@@ -7,6 +7,7 @@ import { AuthenticationGaurdService } from './app/services/authentication-gaurd.
 import { AboutComponent } from './app/component/about/about.component';
 import { RegisterComponent } from './app/component/register/register.component';
 import { ProfileComponent } from './app/component/profile/profile.component';
+import { ErrorPageComponent } from './app/component/404/404.component';
 
 export const appRoutes: Routes = [
     { path: 'gallery/:id', component: GalleryComponent },
@@ -16,5 +17,6 @@ export const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthenticationGaurdService] },
     { path: '', component: AboutComponent },
-    { path: 'login', component: LoginComponent }
+    { path: 'login', component: LoginComponent },
+    { path: 'user-not-found', component: ErrorPageComponent}
 ]
