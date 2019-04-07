@@ -6,7 +6,8 @@
     </div>
     <br>
   </div>
-
+<br>
+  <flash-messages></flash-messages>
 
   <div class="col-md-4 mx-auto">
     <label for="video" id="dpChange" style="text-align: center" class="form-text text-muted">
@@ -18,7 +19,6 @@
 
   <div class="row mt-3">
     <div class="col-md-4 mx-auto">
-<!--  -->
       <form [formGroup]="emailForm">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
@@ -34,20 +34,19 @@
         <button class="btn btn-dark btn-block mt-2 mb-3" type="submit" (click)="updateEmail()">Update Email
           Address</button>
       </form>
-<!--  -->
-      <form>
+      <form [formGroup]="passwordForm">
         <div class="form-group">
-          <input [(ngModel)]="password1" name="password1" name="password" type="password" class="form-control"
+          <input formControlName="passwordOne" name="password1" name="password" type="password" class="form-control"
             id="exampleInputPassword1" placeholder="Password" autocomplete="off" autocomplete="new-password">
         </div>
         <div class="form-group">
-          <input [(ngModel)]="password2" name="password2" name="password" type="password" class="form-control"
+          <input formControlName="passwordTwo" name="password2" name="password" type="password" class="form-control"
             id="exampleInputPassword1" placeholder="Repeat Password">
           <small style="text-align: center" id="emailHelp" class="form-text text-muted">Password must be more than 6
             characters</small>
         </div>
         <button class="btn btn-dark btn-block mt-2" type="submit"
-          (click)="registerUser((username), (email), (password1), (password2))">Change Password</button>
+          (click)="updatePassword()">Change Password</button>
       </form>
     </div>
   </div>

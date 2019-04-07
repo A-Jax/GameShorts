@@ -1,11 +1,9 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { ImageService } from '../../services/image.service';
-import { Observable } from 'rxjs/Observable';
-import { GalleryImage } from '../../models/galleryImage.model'
+import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-profile',
@@ -23,28 +21,25 @@ export class ProfileComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthenticationService,
-    private router: Router) { }
+    private router: Router,
+    private flashMessages: FlashMessagesService) { }
 
   ngOnInit() {
+
+    if (!this.currentUser) {
+      this.router.navigate(['/login']);
+    }
 
     this.emailForm = this.formBuilder.group({
       emailAddress: ['', Validators.required]
     })
 
     this.passwordForm = this.formBuilder.group({
-      passwordOne: ['', Validators.required, Validators.minLength(6), Validators.maxLength(200)]
+      passwordOne: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(200)]],
+      passwordTwo: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(200)]]
     })
 
     this.displayName = this.currentUser.displayName;
-    // console.log(this.currentUser);
-    // this.currentUser.updateProfile({
-    //   displayName: "Lewis",
-    //   photoURL: "https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/43398187_10155746526252551_806481561246498816_o.jpg?_nc_cat=111&_nc_ht=scontent-lht6-1.xx&oh=d1d4bc6630cfd779dd4b39b7f9b226a2&oe=5D4D630B",
-    // }).then(function() {
-    //   // Update successful.
-    // }).catch(function(error) {
-    //   // An error happened.
-    // });
 
   }
 
@@ -52,14 +47,37 @@ export class ProfileComponent implements OnInit {
   get pF() { return this.passwordForm.controls };
 
   public updateEmail(): void {
-    this.currentUser.updateEmail(this.eF.emailAddress.value)
-      .then(function () {
-        console.log('email updated');
-      }).catch(function (error) {
-        this.authService.logout()
-          .then(onResolve => this.router.navigate['/']);
-        console.log('please log in again before changing password');
-      });
+    if (!this.emailForm.valid) {
+      this.flashMessages.show('Please complete all fields.', { cssClass: 'alert-danger', timeout: 2000 });
+    } else {
+      this.currentUser.updateEmail(this.eF.emailAddress.value)
+        .then(() => {
+          this.flashMessages.show('Email Updated.', { cssClass: 'alert-success', timeout: 2000 });
+        })
+        .catch((error) => {
+          this.flashMessages.show('Please log in for your security.', { cssClass: 'alert-danger', timeout: 2000 });
+        });
+    }
   }
+
+  public updatePassword(): void {
+
+    if (this.pF.passwordOne.value !== this.pF.passwordTwo.value) {
+      this.flashMessages.show('Passwords do not match!', { cssClass: 'alert-danger', timeout: 2000 });
+    } else if (!this.passwordForm.valid) {
+      this.flashMessages.show('Please complete all fields', { cssClass: 'alert-danger', timeout: 2000 });
+    }
+    else {
+      this.currentUser.updatePassword(this.pF.passwordOne.value)
+        .then(() => {
+          this.flashMessages.show('Password Updated.', { cssClass: 'alert-success', timeout: 2000 });
+        })
+        .catch((error) => {
+          this.flashMessages.show('Please log in for your security.', { cssClass: 'alert-danger', timeout: 2000 });
+        });
+    }
+
+  }
+
 }
 
