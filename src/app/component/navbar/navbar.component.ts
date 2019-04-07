@@ -53,6 +53,8 @@ export class NavbarComponent implements OnInit {
             this.allUsers.push(snapshot.val()[key].userName)
           })
       })
+
+      console.log(this.allUsers)
   }
 
   public searchUsers(): void {
