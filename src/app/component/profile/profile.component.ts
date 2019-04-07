@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   public displayName: string;
   public emailForm: FormGroup;
   public passwordForm: FormGroup;
+  public pictureForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,6 +38,10 @@ export class ProfileComponent implements OnInit {
     this.passwordForm = this.formBuilder.group({
       passwordOne: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(200)]],
       passwordTwo: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(200)]]
+    })
+
+    this.pictureForm = this.formBuilder.group({
+      profilePicture: ['', Validators.required]
     })
 
     this.displayName = this.currentUser.displayName;
@@ -75,6 +80,24 @@ export class ProfileComponent implements OnInit {
         .catch((error) => {
           this.flashMessages.show('Please log in for your security.', { cssClass: 'alert-danger', timeout: 2000 });
         });
+    }
+
+  }
+
+  changePicture(): void {
+
+    if (this.pictureForm.valid) {
+      this.currentUser.updateProfile({
+        displayName: this.currentUser.displayName,
+        photoURL: this.pictureForm.controls.profilePicture.value
+      }).then(function () {
+        window.location.reload()
+      })
+        .catch((error) => {
+          this.flashMessages.show('An error occured, please try again later...', { cssClass: 'alert-danger', timeout: 2000 });
+        });
+    } else {
+      this.flashMessages.show('Please complete all fields', { cssClass: 'alert-danger', timeout: 2000 });
     }
 
   }

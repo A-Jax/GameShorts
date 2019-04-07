@@ -8,8 +8,11 @@
   </ul>
   <ul class="mx-auto">
     <form [formGroup]="searchForm" class="form-inline my-2 my-lg-0">
+        <div class="input-group-prepend">
+            <span class="input-group-text d-none d-sm-block" id="basic-addon1">@</span>
+          </div>
       <input formControlName="searchParam" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-dark my-2 my-sm-0 mx-auto" type="submit" (click)="searchUsers()">Search</button>
+      <button class="btn btn-dark my-2 my-sm-0 mx-auto d-none d-sm-block" type="submit" (click)="searchUsers()">Search</button>
     </form>
   </ul>
   <ul class="mx-auto">
