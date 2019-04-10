@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { P } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-navbar',
@@ -53,21 +54,22 @@ export class NavbarComponent implements OnInit {
             this.allUsers.push(snapshot.val()[key].userName)
           })
       })
-
-      console.log(this.allUsers)
   }
 
   public searchUsers(): void {
 
+    let href = ['/user-not-found'];
+
     for (let i = 0; i < this.allUsers.length; i++) {
       if (this.searchForm.controls.searchParam.value == this.allUsers[i]) {
-        this.router.navigate([`/gallery/${this.searchForm.controls.searchParam.value}`])
-        break;
-      } else {
-        this.router.navigate(['/user-not-found']);
+        href = [`/gallery/${this.searchForm.controls.searchParam.value}`];
         break;
       }
     }
+
+    this.router.navigateByUrl('/', { skipLocationChange: true }) // router thinks it's loading the same page with the ':' wildcard. Used to override.
+      .then(() => { this.router.navigate(href) })
+
   }
 
   public logOut(): void {

@@ -44,6 +44,7 @@ export class GalleryComponent implements OnInit, OnChanges {
         this.username = firebase.auth().currentUser.uid;
       })
 
+      // TODO: fix error with conditional later
     this.authService.authUser()
       .subscribe(() => {
         this.displayName = firebase.auth().currentUser.displayName;
