@@ -7,13 +7,13 @@
 
 <div class="row mt-1">
   <div class="col-md-6 mx-auto" style="text-align: center">
-    <h1>{{objectKey}}'s Videos</h1>
+    <h1>{{objectKey | titlecase}}'s Videos</h1>
   </div>
   <br>
 </div>
 <div class="container">
   <div class="row mt-3">
-    <div class="col-md-4 mt-3" *ngFor="let video of images | async | reverse">
+    <div class="col-md-4 mt-3" *ngFor="let video of userVideos | reverse">
       <div>
         <div *ngIf="objectKey == video.displayName">
           <div class="card mt-2 mb-2">

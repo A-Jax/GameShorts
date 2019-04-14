@@ -23,6 +23,7 @@ export class GalleryComponent implements OnInit, OnChanges {
   public displayName: string;
   public currentUser: string;
   public objectKey = this.route.snapshot.params['id'];
+  public userVideos = [];
 
   constructor(
     private imageService: ImageService,
@@ -30,35 +31,36 @@ export class GalleryComponent implements OnInit, OnChanges {
     private authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.imageService.getImages()
-      .subscribe((data) => {
-        data.forEach(e => {
-          this.imageUrl = e.url;
-          this.imageKey = e.$key;
-        })
-      })
 
-    this.images = this.imageService.getImages();
+    this.images = this.imageService.getImages()
+
+    this.images.forEach(element => {
+      Object.keys(element)
+        .map((key, index) => {
+          if (element[key].displayName == this.objectKey) {
+            this.userVideos.push(element[key])
+          }
+        })
+    })
+
     this.authService.authUser()
       .subscribe(() => {
         this.username = firebase.auth().currentUser.uid;
       })
 
-      // TODO: fix error with conditional later
     this.authService.authUser()
       .subscribe(() => {
         this.displayName = firebase.auth().currentUser.displayName;
+
       })
   }
   ngOnChanges() {
     this.images = this.imageService.getImages();
   }
 
-
   public deleteVideo(key, videoName): void {
-
     this.imageService.deleteVideo(key, videoName)
-    
   }
 
 }
+
