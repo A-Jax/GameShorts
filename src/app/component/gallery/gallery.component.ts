@@ -17,9 +17,6 @@ export class GalleryComponent implements OnInit, OnChanges {
 
   public username: string;
   public images: Observable<GalleryImage[]>;
-  public imagesId = new Array<any>();
-  public imageUrl: string;
-  public imageKey: string;
   public displayName: string;
   public currentUser: string;
   public objectKey = this.route.snapshot.params['id'];

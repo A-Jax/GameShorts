@@ -61,7 +61,7 @@ export class NavbarComponent implements OnInit {
     let href = ['/user-not-found'];
 
     for (let i = 0; i < this.allUsers.length; i++) {
-      if (this.searchForm.controls.searchParam.value == this.allUsers[i]) {
+      if (this.searchForm.controls.searchParam.value.toLowerCase() == this.allUsers[i]) {
         href = [`/gallery/${this.searchForm.controls.searchParam.value}`];
         break;
       }
