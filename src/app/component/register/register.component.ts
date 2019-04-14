@@ -55,13 +55,14 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       for (let i = 0; i < this.allUsers.length; i++) {
         if (this.rForm.userName.value == this.allUsers[i]) {
-          console.log('username taken');
           this.flashMessages.show('Username Taken.', { cssClass: 'alert-danger', timeout: 2000 });
           break;
         } else if(this.rForm.password1.value === this.rForm.password2.value) {
-          console.log('username not taken');
           this.auth.registerAccount(this.rForm.email.value, this.rForm.password1.value, this.rForm.userName.value.toLowerCase());
           this.router.navigate(['/'])
+          break;
+        } else {
+          this.flashMessages.show('Passwords do not match', { cssClass: 'alert-danger', timeout: 2000 });
           break;
         }
       }
