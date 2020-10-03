@@ -3,13 +3,17 @@
 }
 
 #banner {
-    background-image: url('../../../assets/img/banner.png');
+    background-image: url("../../../assets/img/banner.png");
     height: 500px;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 p {
-    color: #666666;
+    color: rgb(214, 216, 218);
     font-weight: 600;
+}
+
+h1 {
+    color: rgb(214, 216, 218);
 }

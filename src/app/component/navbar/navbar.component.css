@@ -1,13 +1,24 @@
 /* blank */
 
 .navbar {
-    background-color: #191919;
+    background-color: #1b1d23;
 }
 
 ul {
     list-style: none;
 }
 
-a { 
-    color: #ffffff
+a {
+    color: #ffffff;
+}
+
+input {
+    outline: none !important;
+}
+
+.btn {
+    background-color: #f9826c;
+    color: #1B1D23;
+    font-weight: 600;
+    margin: 5px;
 }
