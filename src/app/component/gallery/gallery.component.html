@@ -25,7 +25,7 @@
             <p class="lead">{{video.title}} by {{video.displayName}}</p>
           </div>
           <div *ngIf="displayName == objectKey">
-            <button class="btn btn-block btn-warning" (click)="deleteVideo((video.$key), (video.name))">Delete
+            <button class="btn btn-block" (click)="deleteVideo((video.$key), (video.name))">Delete
               video</button>
           </div>
         </div>

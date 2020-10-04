@@ -9,7 +9,8 @@ ul {
 }
 
 a {
-    color: #ffffff;
+    color: #1B1D23;
+    font-weight: 600;
 }
 
 input {
@@ -18,7 +19,5 @@ input {
 
 .btn {
     background-color: #f9826c;
-    color: #1B1D23;
-    font-weight: 600;
     margin: 5px;
 }

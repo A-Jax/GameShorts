@@ -8,8 +8,13 @@ h1 {
     text-align: center;
     font-size: 55px;
     margin-top: 4%;
-    color: #E0A800;
+    color: #f9826c;
     font-weight: 600;
+}
+
+.card {
+    background-color: #f9826c;
+
 }
 
 h3 {
@@ -26,4 +31,10 @@ h3 {
 
 p {
     text-align: center;
+    color: black;
+    font-weight: 600;
+}
+
+.btn {
+    background-color: #f9826c;
 }
